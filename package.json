@@ -1,22 +1,24 @@
 {
-  "name": "student.api",
+  "name": "studentrecordsapi",
   "version": "1.0.0",
-  "description": "Student API is to experiment with micro services using node.js, express.js and mongodb.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdeelKhilji/StudentRecordsAPI.git"
+  },
   "author": "Adeel Khilji",
   "license": "ISC",
-  "dependencies": {
-    "axios": "^0.24.0",
-    "body-parser": "^1.19.0",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "mongodb": "^4.1.3",
-    "mongoose": "^6.0.12"
+  "bugs": {
+    "url": "https://github.com/AdeelKhilji/StudentRecordsAPI/issues"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.14"
+  "homepage": "https://github.com/AdeelKhilji/StudentRecordsAPI#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12"
   }
 }
