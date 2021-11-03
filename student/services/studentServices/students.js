@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
-const port = 3001;
+const port = process.env.PORT || 3001;
 const mongoose = require("mongoose");
-const studentConnection = require('../../connections/studentConnection');
-require("../../models/student");
+const studentConnection = require('../../../connections/studentConnection');
+require("../../../models/student");
 const Student = mongoose.model("student");
 
 
@@ -45,6 +45,33 @@ app.post("/addStudent",(req,res) =>{
 
     student.save().then(() =>{
         console.log("student record added");
+    }).catch((e) => {
+        console.log("BAD REQUEST" + e);
+    })
+    res.send();
+})
+
+app.post("/updateStudent/:id",(req,res) =>{
+    Student.findById(req.params.id).tehm((student)=>{
+        if(student)
+        {
+            res.json(student)
+        }
+        else
+        {
+            res.sendStatus(404)
+        }
+    })
+    let newStudent = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        studentNum:req.body.studentNum
+    }
+
+    let student = new Student(newStudent);
+
+    student.save().then(() =>{
+        console.log("student record updated");
     }).catch((e) => {
         console.log("BAD REQUEST" + e);
     })
